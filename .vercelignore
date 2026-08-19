@@ -1,0 +1,4 @@
+.cursor
+.agents
+*.md
+!README.md
