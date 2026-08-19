@@ -34,7 +34,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Software Developer · AI · Data`,
+    default: `${site.name} — ${site.role}`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "AI",
   ],
   openGraph: {
-    title: `${site.name} — Software Developer · AI · Data`,
+    title: `${site.name} — ${site.role}`,
     description: site.description,
     url: site.url,
     locale: "en_PH",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Software Developer · AI · Data`,
+    title: `${site.name} — ${site.role}`,
     description: site.description,
   },
   robots: {

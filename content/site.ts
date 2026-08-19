@@ -1,7 +1,7 @@
 export const site = {
   name: "Kurshan Casilen",
   legalName: "Kurshan Craig Sandler L. Casilen",
-  role: "Software Developer · AI · Data",
+  role: "Software Eng · AI · Data",
   headline:
     "Currently exploring the intersection of software engineering and applied AI — building practical systems that turn complex workflows into useful software.",
   email: "kurshancraigsandler@gmail.com",
