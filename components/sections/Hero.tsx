@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/Icons";
 import { OpenToWorkRibbon } from "@/components/sections/OpenToWorkRibbon";
 import { site } from "@/content/site";
+import type { CSSProperties } from "react";
 
 type HeroFact = {
   label: string;
@@ -39,20 +40,20 @@ export function Hero() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.6fr)] lg:items-end lg:gap-16">
           <div>
-            <h1 className="hero-enter font-serif text-[2.6rem] leading-[1.08] text-ink sm:text-6xl lg:text-[4.5rem] [--d:200ms]">
+            <h1 className="hero-name font-serif text-[2.6rem] leading-[1.08] text-ink sm:text-6xl lg:text-[4.5rem]">
               {site.name}
             </h1>
             <span className="hero-rule" aria-hidden="true" />
-            <p className="hero-enter mt-5 font-serif text-xl italic leading-snug text-ink sm:text-2xl [--d:350ms]">
+            <p className="hero-role mt-5 font-serif text-xl italic leading-snug text-ink sm:text-2xl">
               {site.role}
             </p>
-            <p className="hero-enter mt-6 max-w-xl text-lg leading-8 text-ink sm:text-xl sm:leading-8 [--d:500ms]">
+            <p className="hero-lede mt-6 max-w-xl text-lg leading-8 text-ink sm:text-xl sm:leading-8">
               {site.headline}
             </p>
-            <p className="hero-enter mt-5 max-w-xl text-base leading-7 text-ink-muted sm:text-lg sm:leading-8 [--d:650ms]">
+            <p className="hero-copy mt-5 max-w-xl text-base leading-7 text-ink-muted sm:text-lg sm:leading-8">
               {site.positioning}
             </p>
-            <div className="hero-enter mt-10 flex flex-wrap gap-3 [--d:800ms]">
+            <div className="hero-actions mt-10 flex flex-wrap gap-3">
               <Button href="#projects" variant="primary">
                 View my work
                 <IconArrowRight className="h-4 w-4" />
@@ -71,9 +72,13 @@ export function Hero() {
               </Button>
             </div>
           </div>
-          <dl className="hero-enter grid gap-6 border-t border-line pt-8 sm:grid-cols-3 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0 [--d:100ms]">
-            {facts.map((fact) => (
-              <div key={fact.label}>
+          <dl className="hero-facts grid gap-6 border-t border-line pt-8 sm:grid-cols-3 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            {facts.map((fact, index) => (
+              <div
+                key={fact.label}
+                className="hero-fact"
+                style={{ "--d": `${index * 120}ms` } as CSSProperties}
+              >
                 <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
                   {fact.label}
                 </dt>
@@ -82,7 +87,7 @@ export function Hero() {
                     href={fact.href}
                     target={fact.external ? "_blank" : undefined}
                     rel={fact.external ? "noopener noreferrer" : undefined}
-                    className="transition-colors duration-200 hover:text-accent"
+                    className="link-underline"
                   >
                     {fact.value}
                     {fact.external ? (

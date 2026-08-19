@@ -58,3 +58,27 @@ export type EducationEntry = {
   year: string;
   coursework: string[];
 };
+
+export type JourneyKind =
+  | "education"
+  | "internship"
+  | "professional"
+  | "now";
+
+export type JourneyMilestone = {
+  id: string;
+  kind: JourneyKind;
+  category: string;
+  period: string;
+  title: string;
+  organization?: string;
+  location?: string;
+  technologies?: string[];
+  coursework?: string[];
+  highlights?: string[];
+  note?: string;
+  /** Parent milestone id when this stage happened during another. */
+  during?: string;
+  featured?: boolean;
+  open?: boolean;
+};

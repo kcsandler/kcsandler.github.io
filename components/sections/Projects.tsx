@@ -11,6 +11,7 @@ export function Projects() {
       title="Selected work"
       description={projectsIntro}
       compact
+      motion="projects"
     >
       <ProjectRoulette />
     </Section>

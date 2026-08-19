@@ -14,7 +14,7 @@ export function ExternalLink({ href, children, className }: ExternalLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "text-accent underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-accent",
+        "text-accent link-underline",
         className,
       )}
     >

@@ -15,6 +15,11 @@ export function useActiveSection(ids: readonly string[]): string | null {
       const offset = headerOffset();
       const scrollBottom = window.innerHeight + window.scrollY;
       const docHeight = document.documentElement.scrollHeight;
+      const range = Math.max(1, docHeight - window.innerHeight);
+      document.documentElement.style.setProperty(
+        "--scroll-progress",
+        String(window.scrollY / range),
+      );
 
       if (scrollBottom >= docHeight - 8) {
         setActiveId(ids[ids.length - 1] ?? null);

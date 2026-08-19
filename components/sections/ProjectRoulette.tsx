@@ -92,7 +92,7 @@ export function ProjectRoulette() {
         <button
           type="button"
           onClick={() => go(-1)}
-          className="absolute top-1/2 left-0 z-10 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-line bg-bg text-ink transition-colors duration-200 hover:border-ink hover:bg-bg-subtle sm:-left-1"
+          className="absolute top-1/2 left-0 z-10 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-line bg-bg text-ink transition-colors duration-200 hover:border-ink hover:bg-bg-subtle motion-safe:hover:-translate-x-0.5 sm:-left-1"
           aria-label="Previous project"
         >
           <IconChevronLeft className="h-5 w-5" />
@@ -100,7 +100,7 @@ export function ProjectRoulette() {
         <button
           type="button"
           onClick={() => go(1)}
-          className="absolute top-1/2 right-0 z-10 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-line bg-bg text-ink transition-colors duration-200 hover:border-ink hover:bg-bg-subtle sm:-right-1"
+          className="absolute top-1/2 right-0 z-10 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-line bg-bg text-ink transition-colors duration-200 hover:border-ink hover:bg-bg-subtle motion-safe:hover:translate-x-0.5 sm:-right-1"
           aria-label="Next project"
         >
           <IconChevronRight className="h-5 w-5" />
@@ -150,14 +150,14 @@ function ActiveSlide({
       data-cursor="view"
       className="project-card group/project relative z-[1] border border-line bg-bg px-5 py-6 sm:px-7 sm:py-7 motion-safe:transition-[border-color] motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-ink"
     >
-      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
+      <p className="project-index font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
         {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </p>
-      <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted motion-safe:transition-colors motion-safe:duration-300 group-hover/project:text-ink">
+      <p className="project-meta mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted motion-safe:transition-colors motion-safe:duration-300 group-hover/project:text-ink">
         {project.category}
       </p>
       {primary ? (
-        <h3 className="mt-3 font-serif text-2xl leading-snug text-ink sm:text-[1.75rem]">
+        <h3 className="project-title mt-3 font-serif text-2xl leading-snug text-ink sm:text-[1.75rem]">
           <a
             href={primary.href}
             target="_blank"
@@ -173,14 +173,14 @@ function ActiveSlide({
           </a>
         </h3>
       ) : (
-        <h3 className="mt-3 line-clamp-2 font-serif text-2xl leading-snug text-ink motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover/project:translate-x-1">
+        <h3 className="project-title mt-3 line-clamp-2 font-serif text-2xl leading-snug text-ink motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover/project:translate-x-1">
           {project.name}
         </h3>
       )}
-      <p className="mt-3 line-clamp-2 text-sm leading-6 text-ink-muted">
+      <p className="project-summary mt-3 line-clamp-2 text-sm leading-6 text-ink-muted">
         {project.summary}
       </p>
-      <div className="mt-4">
+      <div className="project-media mt-4">
         <Pipeline
           className="flex flex-wrap items-center gap-x-1.5 gap-y-2"
           direction="horizontal"

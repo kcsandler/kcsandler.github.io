@@ -41,7 +41,11 @@ export function Button({
       rel={isExternal ? "noopener noreferrer" : undefined}
       onClick={onClick}
       className={cn(
-        "inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2.5 font-sans text-sm transition-[color,background-color,border-color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:hover:-translate-y-px",
+        "group/btn inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2.5 font-sans text-sm",
+        "transition-[color,background-color,border-color,transform] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "motion-safe:hover:-translate-y-px motion-safe:active:translate-y-px",
+        "[&_svg]:motion-safe:transition-transform [&_svg]:motion-safe:duration-200 [&_svg]:motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)]",
+        "motion-safe:[&_svg]:group-hover/btn:translate-x-1",
         variant === "primary" &&
           "bg-accent text-on-accent hover:bg-accent-hover",
         variant === "ghost" &&

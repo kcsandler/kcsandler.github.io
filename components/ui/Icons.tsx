@@ -159,3 +159,20 @@ export function IconSend(props: IconProps) {
     </BaseIcon>
   );
 }
+
+export function IconSun(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <circle cx="12" cy="12" r="3.25" />
+      <path d="M12 4.5v1.5M12 18v1.5M4.5 12H6M18 12h1.5M6.6 6.6l1.1 1.1M16.3 16.3l1.1 1.1M17.4 6.6l-1.1 1.1M7.7 16.3l-1.1 1.1" />
+    </BaseIcon>
+  );
+}
+
+export function IconMoon(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 7 7 0 0 0 20 14.5Z" />
+    </BaseIcon>
+  );
+}

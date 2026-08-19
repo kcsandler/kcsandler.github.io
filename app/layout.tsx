@@ -6,6 +6,7 @@ import {
   AssistantHost,
   FloatingUiProvider,
   SideNavHost,
+  ThemeHost,
 } from "@/components/layout/FloatingChrome";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -66,7 +67,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F6F3EE",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F6F3EE" },
+    { media: "(prefers-color-scheme: dark)", color: "#141210" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -83,7 +87,7 @@ const jsonLd = {
   sameAs: [site.linkedin, site.github],
 };
 
-const entranceScript = `(function(){try{var r=window.matchMedia("(prefers-reduced-motion: reduce)").matches;var s=sessionStorage.getItem("pw-entrance")==="1";document.documentElement.dataset.entrance=(r||s)?"done":"play";if(!r&&!s)sessionStorage.setItem("pw-entrance","1");}catch(e){document.documentElement.dataset.entrance="done";}})();`;
+const bootScript = `(function(){try{var stored=window.localStorage.getItem("pw-theme");var theme=stored==="dark"||stored==="light"?stored:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme;}catch(e){document.documentElement.dataset.theme="light";}try{var r=window.matchMedia("(prefers-reduced-motion: reduce)").matches;document.documentElement.dataset.motion=r?"off":"on";document.documentElement.dataset.entrance=r?"done":"play";}catch(e){document.documentElement.dataset.motion="off";document.documentElement.dataset.entrance="done";}})();`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -93,7 +97,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: entranceScript }} />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
       <body className="flex min-h-full flex-col bg-bg font-sans text-ink">
         <script
@@ -107,6 +111,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <FloatingUiProvider>
+          <ThemeHost />
           <SideNavHost />
           {children}
           <Footer />

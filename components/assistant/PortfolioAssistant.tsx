@@ -91,7 +91,7 @@ export function PortfolioAssistant({
       {open ? (
         <button
           type="button"
-          className="fixed inset-0 z-[45] bg-ink/20 md:hidden"
+            className="fixed inset-0 z-[45] bg-scrim md:hidden"
           aria-label="Close assistant"
           onClick={close}
         />

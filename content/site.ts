@@ -31,7 +31,7 @@ export const navItems = [
   {
     id: "experience",
     href: "#experience",
-    label: "Experience",
+    label: "Journey",
     icon: "experience",
   },
   { id: "contact", href: "#contact", label: "Contact", icon: "contact" },

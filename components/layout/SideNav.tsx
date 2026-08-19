@@ -107,7 +107,7 @@ export function SideNav({
         <div className="fixed inset-0 z-30 md:hidden">
           <button
             type="button"
-            className="absolute inset-0 bg-ink/20"
+            className="absolute inset-0 bg-scrim"
             aria-label="Close sections"
             onClick={() => onMobileOpenChange(false)}
           />
@@ -179,7 +179,7 @@ function NavLink({
         active ? "border-accent text-accent" : "border-transparent hover:border-line",
       )}
     >
-      <Icon className="h-[1.125rem] w-[1.125rem] shrink-0 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover/nav:translate-x-0.5" />
+      <Icon className="h-[1.125rem] w-[1.125rem] shrink-0 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover/nav:translate-x-0.5 motion-safe:group-hover/nav:rotate-3" />
       <span
         className={cn(
           "ml-3 font-mono text-[11px] uppercase tracking-[0.14em] whitespace-nowrap",

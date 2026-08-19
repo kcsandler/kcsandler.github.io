@@ -2,6 +2,7 @@
 
 import { PortfolioAssistant } from "@/components/assistant/PortfolioAssistant";
 import { SideNav } from "@/components/layout/SideNav";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { navItems } from "@/content/site";
 import { useActiveSection } from "@/lib/hooks/useActiveSection";
 import {
@@ -66,6 +67,10 @@ export function FloatingUiProvider({ children }: { children: ReactNode }) {
   return (
     <FloatingUiContext.Provider value={value}>{children}</FloatingUiContext.Provider>
   );
+}
+
+export function ThemeHost() {
+  return <ThemeToggle />;
 }
 
 export function SideNavHost() {

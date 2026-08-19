@@ -4,7 +4,7 @@ export const education: EducationEntry = {
   school: "Saint Louis University",
   location: "Baguio City",
   degree: "BS Computer Science",
-  year: "2026",
+  year: "2022 – 2026",
   coursework: [
     "Data Structures and Algorithms",
     "Web Development",

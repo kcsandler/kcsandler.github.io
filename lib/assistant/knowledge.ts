@@ -1,4 +1,5 @@
 import { about } from "@/content/about";
+import { education } from "@/content/education";
 import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
 import { skillGroups } from "@/content/skills";
@@ -75,7 +76,7 @@ export function knowledgeDocs(): KnowledgeDoc[] {
     {
       id: "about",
       title: about.title,
-      tags: ["about", "personality", "lifting", "running", "gaming"],
+      tags: ["about", "personality", "lifting", "running", "gaming", "reading", "manhwa", "manga"],
       body: `**${about.title}.** ${about.lead}`,
     },
     {
@@ -146,6 +147,27 @@ export function knowledgeDocs(): KnowledgeDoc[] {
         ...role.highlights.map((item) => `- ${item}`),
       ].join("\n"),
     })),
+    {
+      id: "education",
+      title: `${education.degree}, ${education.school}`,
+      tags: [
+        "education",
+        "school",
+        "university",
+        "degree",
+        "computer",
+        "science",
+        "slu",
+        education.school,
+        education.degree,
+        education.location,
+        ...education.coursework,
+      ],
+      body: [
+        `**${education.degree}**, ${education.school} (${education.location}, ${education.year})`,
+        `Coursework: ${education.coursework.join(", ")}`,
+      ].join("\n\n"),
+    },
     ...projects.map(projectDoc),
   ];
 }

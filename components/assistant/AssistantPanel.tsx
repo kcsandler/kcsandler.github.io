@@ -41,7 +41,6 @@ export function AssistantPanel({
       inert={!open}
       className={cn(
         "assistant-panel pointer-events-auto fixed z-50 flex flex-col border border-line bg-bg",
-        "shadow-[0_12px_40px_rgba(28,27,25,0.08)]",
         "inset-x-4 bottom-32 h-[min(36rem,calc(100dvh-9rem))] w-auto",
         "md:inset-x-auto md:right-[4.75rem] md:bottom-4 md:h-[min(36.5rem,calc(100dvh-2rem))] md:w-[26rem]",
         open && "is-open",
