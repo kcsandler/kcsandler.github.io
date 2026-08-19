@@ -46,7 +46,7 @@ export const milestones: JourneyMilestone[] = [
   {
     id: "professional",
     kind: "professional",
-    category: "Professional",
+    category: "Contract",
     period: professional.period,
     title: professional.role,
     organization: professional.company,

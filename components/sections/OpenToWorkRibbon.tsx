@@ -4,7 +4,7 @@ export function OpenToWorkRibbon() {
   return (
     <p
       role="status"
-      className="open-ribbon pointer-events-auto absolute top-0 z-10 flex h-[10.25rem] w-8 justify-center right-[4.75rem] lg:right-[max(6.5rem,14%)] lg:h-[12.25rem] lg:w-10"
+      className="open-ribbon pointer-events-auto absolute top-0 z-10 flex h-[10.25rem] w-8 justify-center right-[4.75rem] lg:right-[5.5rem] lg:h-[12.25rem] lg:w-10"
     >
       <span className="open-ribbon-sway flex h-full w-full justify-center">
         <span className="open-ribbon-face relative flex h-full w-full justify-center pt-4 lg:pt-[1.35rem]">

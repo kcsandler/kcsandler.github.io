@@ -16,6 +16,9 @@ export const site = {
     "I build full-stack applications, RAG systems, NLP pipelines, internal tools, and data-driven workflows.",
   identityLine: "AI / RAG · Full Stack · NLP · Data",
   availability: "OPEN TO WORK",
+  portraitSrc: "/kurshan-casilen.png",
+  portraitAlt:
+    "Kurshan Casilen, seated in a studio portrait, wearing glasses and a black blazer over a white shirt.",
   contactTitle: "Let's build something useful.",
   contactBody:
     "Get in touch for work, projects, collaborations, or just to say hello.",
