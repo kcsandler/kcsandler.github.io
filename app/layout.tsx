@@ -34,7 +34,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
+    default: `${site.name} — Software Developer`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -48,6 +48,25 @@ export const metadata: Metadata = {
     "full-stack",
     "AI",
   ],
+  icons: {
+    icon: [
+      {
+        url: "/favicon-light.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+      { url: "/favicon-light.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description: site.description,
@@ -87,7 +106,7 @@ const jsonLd = {
   sameAs: [site.linkedin, site.github],
 };
 
-const bootScript = `(function(){try{var stored=window.localStorage.getItem("pw-theme");var theme=stored==="dark"||stored==="light"?stored:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme;}catch(e){document.documentElement.dataset.theme="light";}try{var r=window.matchMedia("(prefers-reduced-motion: reduce)").matches;document.documentElement.dataset.motion=r?"off":"on";document.documentElement.dataset.entrance=r?"done":"play";}catch(e){document.documentElement.dataset.motion="off";document.documentElement.dataset.entrance="done";}})();`;
+const bootScript = `(function(){try{var stored=window.localStorage.getItem("pw-theme");var theme=stored==="dark"||stored==="light"?stored:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme;var applyFav=function(){var href=document.documentElement.dataset.theme==="dark"?"/favicon-dark.svg":"/favicon-light.svg";document.querySelectorAll('link[rel="icon"],link[rel="shortcut icon"]').forEach(function(n){n.remove();});var l=document.createElement("link");l.rel="icon";l.type="image/svg+xml";l.setAttribute("data-brand-icon","true");l.href=href;document.head.appendChild(l);};if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",applyFav);else applyFav();}catch(e){document.documentElement.dataset.theme="light";}try{var r=window.matchMedia("(prefers-reduced-motion: reduce)").matches;document.documentElement.dataset.motion=r?"off":"on";document.documentElement.dataset.entrance=r?"done":"play";}catch(e){document.documentElement.dataset.motion="off";document.documentElement.dataset.entrance="done";}})();`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

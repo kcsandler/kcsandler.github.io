@@ -1,7 +1,7 @@
 "use client";
 
 import { IconMoon, IconSun } from "@/components/ui/Icons";
-import { THEME_STORAGE_KEY, readTheme, toggleTheme, type Theme } from "@/lib/theme";
+import { THEME_STORAGE_KEY, applyThemeChrome, readTheme, toggleTheme, type Theme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 import { useLayoutEffect, useState } from "react";
 
@@ -9,7 +9,9 @@ export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
 
   useLayoutEffect(() => {
-    setTheme(readTheme());
+    const initial = readTheme();
+    applyThemeChrome(initial);
+    setTheme(initial);
 
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     function onPrefersChange() {
@@ -17,8 +19,7 @@ export function ThemeToggle() {
         return;
       }
       const next: Theme = media.matches ? "dark" : "light";
-      document.documentElement.dataset.theme = next;
-      document.documentElement.style.colorScheme = next;
+      applyThemeChrome(next);
       setTheme(next);
     }
 
