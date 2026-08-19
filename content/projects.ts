@@ -145,37 +145,4 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    name: "AI Job Application Assistant",
-    category: "AI · Software",
-    featured: false,
-    summary:
-      "Job-description analyzer that keeps extraction, skill overlap, and bullet rewriting in separate labeled layers, grounded in a real resume.",
-    problem:
-      "Most “AI apply” demos wrap a chat model around a JD and invent experience.",
-    solution:
-      "Heuristic or optional LLM extraction, deterministic set overlap, and generated bullets that are dropped unless they cite a real resume source_id. Garbage JDs return HTTP 422.",
-    pipeline: [
-      "Job description",
-      "Extract (schema)",
-      "Deterministic match",
-      "Source-cited bullets",
-      "SQLite history",
-    ],
-    result:
-      "On 3 original sample postings: macro F1 = 1.0000 for required-skill extraction, matched skills, and missing skills. Not a published hiring benchmark. A staff Java/Kafka/Kubernetes posting scores coverage 0.25 (Java only).",
-    technologies: [
-      "Python",
-      "FastAPI",
-      "Pydantic",
-      "SQLite",
-      "PyYAML",
-    ],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/kcsandler/ai-job-application-assistant",
-      },
-    ],
-  },
 ];

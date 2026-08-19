@@ -77,6 +77,14 @@ export function IconClose(props: IconProps) {
   );
 }
 
+export function IconCheck(props: IconProps) {
+  return (
+    <BaseIcon {...props}>
+      <path d="M5 12.5 9.5 17 19 7" />
+    </BaseIcon>
+  );
+}
+
 export function IconChevronLeft(props: IconProps) {
   return (
     <BaseIcon {...props}>
